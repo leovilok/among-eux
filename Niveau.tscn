@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Public.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://President.gd" type="Script" id=3]
+[ext_resource path="res://Guard.gd" type="Script" id=4]
+[ext_resource path="res://Niveau.gd" type="Script" id=5]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 29.0172
+
+[node name="Niveau" type="Node2D"]
+script = ExtResource( 5 )
+
+[node name="Walls" type="StaticBody2D" parent="."]
+material = SubResource( 2 )
+position = Vector2( 1067, 274 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+visible = false
+build_mode = 1
+polygon = PoolVector2Array( -1067, -274, -43, -274, -43, 326, -1068, 325 )
+
+[node name="President" type="RigidBody2D" parent="."]
+position = Vector2( 29, 279 )
+mode = 2
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="President"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="President"]
+shape = SubResource( 1 )
+
+[node name="Public" parent="." instance=ExtResource( 1 )]
+position = Vector2( 208, 389 )
+
+[node name="Public2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 254, 284 )
+
+[node name="Public3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 563, 307 )
+
+[node name="Public4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 400, 224 )
+
+[node name="Public5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 385, 395 )
+
+[node name="Public6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 420, 297 )
+
+[node name="Public7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 681, 384 )
+
+[node name="Public8" parent="." instance=ExtResource( 1 )]
+position = Vector2( 695, 241 )
+
+[node name="Guard" type="KinematicBody2D" parent="."]
+position = Vector2( 120, 256 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Guard"]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard"]
+shape = SubResource( 1 )
