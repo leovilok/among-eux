@@ -13,5 +13,5 @@ func _ready():
 	$LvlLabel.text = "lvl: " + String(lvl)
 
 func _physics_process(_delta):
-	if $President.position.x + safe_radius > get_viewport_rect().size.x:
+	if $YSort/President.position.x + safe_radius > get_viewport_rect().size.x:
 		get_parent().next_lvl()
