@@ -5,14 +5,20 @@ export var force = 20.0
 
 var pnj_frames = [preload("res://PNJ1frames.tres"), preload("res://PNJ2frames.tres"), preload("res://PNJ3frames.tres")]
 
+var type = -1
+
 func init():
 	max_speed = rand_range(0, max_speed)
 	
-	var vp_size = get_viewport_rect().size
-	position.x = rand_range(vp_size.x/10, vp_size.x-30.0)
-	position.y = rand_range(30.0, vp_size.y-30.0)
+	if position == Vector2():
+		var vp_size = get_viewport_rect().size
+		position.x = rand_range(vp_size.x/10, vp_size.x-30.0)
+		position.y = rand_range(30.0, vp_size.y-30.0)
 	
-	$Sprite.frames = pnj_frames[randi()%3]
+	if type == -1:
+		type = randi()%3
+	
+	$Sprite.frames = pnj_frames[type]
 
 func _ready():
 	init()
