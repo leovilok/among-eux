@@ -3,8 +3,19 @@ extends RigidBody2D
 export var max_speed = 20.0
 export var force = 20.0
 
-func _ready():
+var pnj_frames = [preload("res://PNJ1frames.tres"), preload("res://PNJ2frames.tres"), preload("res://PNJ3frames.tres")]
+
+func init():
 	max_speed = rand_range(0, max_speed)
+	
+	var vp_size = get_viewport_rect().size
+	position.x = rand_range(vp_size.x/10, vp_size.x-30.0)
+	position.y = rand_range(30.0, vp_size.y-30.0)
+	
+	$Sprite.frames = pnj_frames[randi()%3]
+
+func _ready():
+	init()
 
 func _process(_delta):
 	$Sprite.rotation = -rotation
