@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/president.mp3-1c2234f8f36b1d10977b80e09a0e7af3.mp3str"
+
+[deps]
+
+source_file="res://sounds/president.mp3"
+dest_files=[ "res://.import/president.mp3-1c2234f8f36b1d10977b80e09a0e7af3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

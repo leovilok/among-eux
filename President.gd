@@ -2,6 +2,8 @@ extends RigidBody2D
 
 export var max_speed = 30.0
 
+var gameover_scn = preload("res://GameOverScreen.tscn")
+
 func _ready():
 	contact_monitor = true
 	contacts_reported = 10
@@ -26,4 +28,10 @@ func _integrate_forces(state):
 
 func _on_President_body_entered(body):
 	if body is Evil:
-		get_tree().change_scene("res://GameOverScreen.tscn")
+		var lvl = get_parent().get_parent().lvl
+		#get_tree().change_scene("res://GameOverScreen.tscn")
+		#get_viewport().get_child(0).lvl = lvl
+		var gameover = gameover_scn.instance()
+		gameover.lvl = get_parent().get_parent().lvl
+		get_parent().get_parent().add_child(gameover)
+		max_speed = 0

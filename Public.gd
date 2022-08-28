@@ -12,7 +12,7 @@ func init():
 	
 	if position == Vector2():
 		var vp_size = get_viewport_rect().size
-		position.x = rand_range(vp_size.x/10, vp_size.x-30.0)
+		position.x = rand_range(vp_size.x/5, vp_size.x-30.0)
 		position.y = rand_range(30.0, vp_size.y-30.0)
 	
 	if type == -1:

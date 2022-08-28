@@ -14,17 +14,20 @@ export var dash_duration = .3
 var target = Vector2()
 var dash_state = -dash_timeout
 
+var last_click = 0.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	target = position
 
 func _unhandled_input(event):
-	if event is InputEventMouseButton:
+	if event is InputEventMouseButton and event.pressed:
+		var date = Time.get_ticks_msec()
 		target = event.position
-		if event.doubleclick and dash_state <= -dash_timeout:
+		if (event.doubleclick or date-last_click < 250.0 ) and dash_state <= -dash_timeout:
 			dash_state = dash_duration
 			$Dash.visible = true
+		last_click = date
 
 func _physics_process(delta):
 	var to_target = target - position
