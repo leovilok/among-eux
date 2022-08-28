@@ -1,0 +1,83 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Level.gd" type="Script" id=1]
+[ext_resource path="res://President.gd" type="Script" id=2]
+[ext_resource path="res://Public.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Guard.gd" type="Script" id=4]
+[ext_resource path="res://icon.png" type="Texture" id=5]
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 29.0172
+
+[node name="Level" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="LvlLabel" type="Label" parent="."]
+margin_left = 438.0
+margin_top = 7.0
+margin_right = 502.0
+margin_bottom = 21.0
+text = "lvl: 1"
+align = 2
+
+[node name="Walls" type="StaticBody2D" parent="."]
+material = SubResource( 2 )
+position = Vector2( 1067, 274 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
+visible = false
+build_mode = 1
+polygon = PoolVector2Array( -1067, -274, -555, -274, -555, 26, -1067, 26 )
+
+[node name="President" type="RigidBody2D" parent="."]
+position = Vector2( 29, 155 )
+mode = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="President"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="President"]
+shape = SubResource( 1 )
+
+[node name="Public" parent="." instance=ExtResource( 3 )]
+position = Vector2( 152, 250 )
+
+[node name="Public2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 285, 78 )
+
+[node name="Public3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 277, 189 )
+
+[node name="Public4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 156, 66 )
+
+[node name="Public5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 255, 248 )
+
+[node name="Public6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 176, 139 )
+
+[node name="Public7" parent="." instance=ExtResource( 3 )]
+position = Vector2( 395, 266 )
+
+[node name="Public8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 409, 123 )
+
+[node name="Guard" type="KinematicBody2D" parent="."]
+position = Vector2( 54, 74 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Guard"]
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guard"]
+shape = SubResource( 1 )

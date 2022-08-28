@@ -7,6 +7,7 @@
 radius = 29.0172
 
 [node name="Public" type="RigidBody2D" groups=["public"]]
+mode = 2
 gravity_scale = 0.0
 linear_damp = 1.0
 script = ExtResource( 2 )
