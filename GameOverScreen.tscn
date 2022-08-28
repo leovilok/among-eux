@@ -1,12 +1,11 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://graphics/gameover.png" type="Texture" id=1]
+[ext_resource path="res://GameOverScreen.gd" type="Script" id=2]
 
 [node name="GameOverScreen" type="Node2D"]
+script = ExtResource( 2 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 216.0
-margin_top = 123.0
-margin_right = 314.0
-margin_bottom = 159.0
-text = "Game Over"
-align = 1
-valign = 1
+[node name="Gameover" type="Sprite" parent="."]
+position = Vector2( 256, 150 )
+texture = ExtResource( 1 )

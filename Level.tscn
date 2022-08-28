@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://Level.gd" type="Script" id=1]
 [ext_resource path="res://President.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://graphics/president_sheet.png" type="Texture" id=6]
 [ext_resource path="res://graphics/route.png" type="Texture" id=7]
 [ext_resource path="res://graphics/route2.png" type="Texture" id=8]
+[ext_resource path="res://graphics/guard_dash.png" type="Texture" id=9]
 
 [sub_resource type="SpriteFrames" id=50]
 animations = [ {
@@ -152,6 +153,26 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="AtlasTexture" id=51]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 60, 60 )
+
+[sub_resource type="AtlasTexture" id=52]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 120, 60, 60 )
+
+[sub_resource type="AtlasTexture" id=53]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 60, 60, 60 )
+
+[sub_resource type="AtlasTexture" id=54]
+flags = 4
+atlas = ExtResource( 9 )
+region = Rect2( 0, 180, 60, 60 )
+
 [sub_resource type="AtlasTexture" id=25]
 flags = 4
 atlas = ExtResource( 5 )
@@ -254,6 +275,26 @@ region = Rect2( 180, 180, 60, 60 )
 
 [sub_resource type="SpriteFrames" id=45]
 animations = [ {
+"frames": [ SubResource( 51 ) ],
+"loop": true,
+"name": "dash_down",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 52 ) ],
+"loop": true,
+"name": "dash_left",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 53 ) ],
+"loop": true,
+"name": "dash_right",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 54 ) ],
+"loop": true,
+"name": "dash_up",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
 "loop": true,
 "name": "down",
@@ -326,12 +367,8 @@ shape = SubResource( 3 )
 
 [node name="Sprite" type="AnimatedSprite" parent="YSort/President"]
 frames = SubResource( 24 )
-animation = "up"
-frame = 2
+animation = "dash_down"
 playing = true
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Guard" type="KinematicBody2D" parent="YSort"]
 position = Vector2( 48, 90 )
@@ -342,8 +379,7 @@ __meta__ = {
 
 [node name="Sprite" type="AnimatedSprite" parent="YSort/Guard"]
 frames = SubResource( 45 )
-animation = "up"
-frame = 2
+animation = "right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="YSort/Guard"]
 position = Vector2( 0, 12 )

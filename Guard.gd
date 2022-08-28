@@ -41,6 +41,10 @@ func _physics_process(delta):
 			$Sprite.animation = "left"
 		elif direction == 3:
 			$Sprite.animation = "up"
+		
+		if dash_state >= 0:
+			$Sprite.animation = "dash_" + $Sprite.animation
+		
 		$Sprite.playing = true
 	else:
 		$Sprite.playing = false
@@ -50,6 +54,7 @@ func _physics_process(delta):
 		dash_state -= delta
 		if dash_state <= 0:
 			$Dash.scale.x = (dash_timeout+dash_state)/dash_timeout * 0.01
+
 	else:
 		$Dash.visible = false
 		

@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="President"
-run/main_scene="res://Levels.tscn"
+run/main_scene="res://StartScreen.tscn"
 config/icon="res://icon.png"
 
 [display]
